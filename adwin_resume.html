@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adwin H R - Resume</title>
+  <style>
+    @page {
+      margin: 0.4in;
+      size: A4;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.2;
+      color: #333;
+      background-color: #f5f5f5;
+      font-size: 12px;
+    }
+
+    .container {
+      max-width: 8.5in;
+      margin: 15px auto;
+      background: white;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    .header {
+      background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+      color: white;
+      padding: 20px 25px 15px;
+      position: relative;
+    }
+
+    .header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="90" cy="90" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+    }
+
+    .header-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .name {
+      font-size: 5em;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+
+    .contact-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-top: 8px;
+      font-size: 0.85em;
+    }
+
+    .contact-left, .contact-right {
+      flex: 1;
+    }
+
+    .contact-right {
+      text-align: right;
+    }
+
+    .contact-info div {
+      margin-bottom: 2px;
+      opacity: 0.9;
+    }
+
+    .summary {
+      background: #ecf0f1;
+      padding: 15px 25px;
+      font-size: 11px;
+      line-height: 1.4;
+      border-left: 3px solid #3498db;
+    }
+
+    .content {
+      padding: 0 25px 25px;
+    }
+
+    .section {
+      margin: 20px 0;
+    }
+
+    .section-title {
+      font-size: 1.3em;
+      color: #2c3e50;
+      border-bottom: 2px solid #3498db;
+      padding-bottom: 4px;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .skills-condensed {
+      line-height: 1.4;
+    }
+
+    .skills-condensed p {
+      margin-bottom: 5px;
+      font-size: 0.9em;
+    }
+
+    .job {
+      margin-bottom: 20px;
+      border-left: 2px solid #e0e0e0;
+      padding-left: 15px;
+      position: relative;
+      page-break-inside: avoid;
+    }
+
+    .job::before {
+      content: '';
+      position: absolute;
+      left: -5px;
+      top: 5px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #3498db;
+    }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 8px;
+    }
+
+    .job-title {
+      font-size: 1.1em;
+      font-weight: 600;
+      color: #2c3e50;
+    }
+
+    .company {
+      font-style: italic;
+      color: #7f8c8d;
+      margin-top: 1px;
+      font-size: 0.95em;
+    }
+
+    .date {
+      background: #3498db;
+      color: white;
+      padding: 3px 8px;
+      border-radius: 12px;
+      font-size: 0.75em;
+      white-space: nowrap;
+    }
+
+    .job ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .job li {
+      margin-bottom: 4px;
+      padding-left: 15px;
+      position: relative;
+      line-height: 1.3;
+      font-size: 0.9em;
+    }
+
+    .job li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: #3498db;
+      font-weight: bold;
+    }
+
+    .highlight {
+      font-weight: 600;
+      color: #2c3e50;
+    }
+
+    .education {
+      background: #f8f9fa;
+      padding: 15px;
+      border-radius: 6px;
+      border-left: 3px solid #e74c3c;
+      page-break-inside: avoid;
+    }
+
+    .education h4 {
+      color: #2c3e50;
+      font-size: 1.05em;
+      margin-bottom: 3px;
+    }
+
+    .education .institution {
+      color: #7f8c8d;
+      font-style: italic;
+      margin-bottom: 3px;
+      font-size: 0.9em;
+    }
+
+    .education .details {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 6px;
+      font-size: 0.85em;
+    }
+
+    .gpa {
+      background: #e74c3c;
+      color: white;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 0.8em;
+    }
+
+    /* Print Styles */
+    @media print {
+
+      body {
+        background: white;
+        font-size: 10pt;
+        line-height: 1.3;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .container {
+        max-width: none;
+        margin: 0;
+        box-shadow: none;
+      }
+
+      .header {
+        padding: 15px 20px 10px;
+      }
+
+      .name {
+        font-size: 2em;
+      }
+
+      .summary {
+        padding: 12px 20px;
+        font-size: 9pt;
+        text-align: justify;
+      }
+
+      .content {
+        padding: 0 20px 15px;
+      }
+
+      .section {
+        margin: 18px 0;
+      }
+
+      .section-title {
+        font-size: 1.1em;
+        margin-bottom: 8px;
+      }
+
+      .job {
+        margin-bottom: 15px;
+      }
+
+      .contact-info {
+        font-size: 8pt;
+      }
+
+      .job li {
+        font-size: 8.5pt;
+      }
+
+      .contact-info a {
+        text-decoration: underline;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="header-content">
+        <h1 class="name">Adwin H R</h1>
+        <div class="contact-info">
+          <div class="contact-left">
+            <div>Bangalore, KA</div>
+            <div><a href="tel:+919945559279" style="color: white !important;">9945559279</a></div>
+          </div>
+          <div class="contact-right">
+            <div>
+              <a href="mailto:adwinhr@gmail.com" style="color: white !important;">adwinhr@gmail.com</a>
+            </div>
+            <div>
+              <a href="https://linkedin.com/in/adwin-h-r-gowda-172867210" target="_blank" style="color: white !important;">
+                linkedin
+              </a>
+            </div>
+            
+            <!-- <div>
+              <a href="https://adwinhr.online" target="_blank" style="color: white !important;">adwinhr.online</a>
+            </div> -->
+           
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="summary">
+  <strong>Fullstack Developer with 3+ years of experience</strong> designing and building scalable web applications using 
+  <span class="highlight">Java Spring Boot</span>, <span class="highlight">Node.js</span>, and modern frontend frameworks. 
+  Skilled in <span class="highlight">REST API development, backend integration, and frontend performance</span>. 
+  Experienced in implementing <span class="highlight">Retrieval-Augmented Generation (RAG) pipelines</span> and leveraging 
+  <span class="highlight">Large Language Models (LLMs)</span> for intelligent automation and enterprise solutions.
+</div>
+
+
+    <div class="content">
+   <section class="section skills">
+  <h2 class="section-title">Skills</h2>
+  <div class="skills-condensed">
+    <p><strong>Backend & APIs:</strong> Java, Spring Boot, REST APIs, Node.js, Express.js, MySQL, Auth & Security (JWT, OAuth)</p>
+    <p><strong>Frontend:</strong> React.js, SvelteKit, HTML, CSS, JavaScript (ES6+), Context API</p>
+    <p><strong>Cloud & DevOps:</strong> AWS, Docker, Kubernetes, CI/CD pipelines, Acquia Cloud, Control Tower</p>
+    <p><strong>AI & Advanced:</strong> Retrieval-Augmented Generation (RAG), LLM integration, AI-driven workflows, Chatbots</p>
+    <p><strong>Other:</strong> Debugging, Performance Optimization, Production Support (PagerDuty)</p>
+  </div>
+</section>
+
+
+      <section class="section work-history">
+        <h2 class="section-title">Work history</h2>
+
+       <div class="job">
+  <div class="job-header">
+    <div>
+      <div class="job-title">Software Engineer</div>
+      <div class="company">EQS Group, Kochi, India</div>
+    </div>
+    <div class="date">Jan 2025 – Current</div>
+  </div>
+  <ul>
+   <ul>
+  <li class="highlight">Career Transition: Moved from OneTrust to EQS Group while continuing product contributions</li>
+  <li class="highlight">Dual Role: Collaborated across both OneTrust and EQS teams to deliver new features</li>
+</ul>
+ <li>Migrating legacy sites from <span class="highlight">WordPress/Drupal</span> to modern <span class="highlight">SvelteKit/Node.js</span> applications</li>
+    <li>Built reusable, interactive <span class="highlight">Svelte</span> UI components for optimal performance</li>
+    <li>Developed <span class="highlight">REST APIs</span> in Node.js/Express with <span class="highlight">Cockpit CMS</span> integration</li>
+    <li>Implemented <span class="highlight">authentication, middleware, and API security</span> for reliable data delivery</li>
+    <li>Automated deployments using <span class="highlight">AWS Control Tower</span></li>
+  </ul>
+</div>
+
+
+      <div class="job">
+  <div class="job-header">
+    <div>
+      <div class="job-title">Software Engineer</div>
+      <div class="company">OneTrust, India</div>
+    </div>
+    <div class="date">Sep 2022 - Dec 2024</div>
+  </div>
+  <ul>
+    <li>Designed and developed <span class="highlight">Java Spring Boot REST APIs</span> for scalable and secure data delivery</li>
+    <li>Built <span class="highlight">React.js</span> frontends consuming Spring Boot services for customizable dashboards</li>
+    <li>Delivered reusable UI components (sidebars, banners, search, PDF viewers) enhancing UX and developer productivity</li>
+    <li>Optimized performance with <span class="highlight">lazy loading, code splitting</span>, and accessibility best practices</li>
+    <li>Integrated <span class="highlight">AI Translation service</span> into Spring Boot APIs for multilingual content support</li>
+    <li>Managed deployments on <span class="highlight">Acquia Cloud & AWS</span>, configured <span class="highlight">GA4 analytics</span></li>
+    <li>Supported production issues with <span class="highlight">PagerDuty</span>, debugging backend and frontend issues</li>
+  </ul>
+</div>
+
+<div class="job">
+  <div class="job-header">
+    <div>
+      <div class="job-title">Software Engineer Intern/Trainee</div>
+      <div class="company">OneTrust, India</div>
+    </div>
+    <div class="date">Mar 2022 - Aug 2022</div>
+  </div>
+  <ul>
+    <li>Developed <span class="highlight">Spring Boot REST APIs</span> and integrated them with <span class="highlight">React.js UIs</span> for data-driven modules</li>
+    <li>Implemented reusable components and optimized <span class="highlight">API contracts</span> to streamline workflows</li>
+    <li>Gained strong foundation in <span class="highlight">backend development, API integration, and CI/CD pipelines</span></li>
+  </ul>
+</div>
+
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Education</h2>
+        <div class="education">
+          <h4>B.E in Information Science and Engineering</h4>
+          <div class="institution">Malnad College Of Engineer</div>
+          <div class="details">
+            <span>Graduated July 2022</span>
+            <span class="gpa">GPA: 8.56</span>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>
